@@ -80,8 +80,8 @@ getNews()
             let link = document.createElement('a')
             newsTitle.classList.add('ticker__item')
             link.appendChild(newsTitle)
-            // link.href = article.url
-            // newsTitle.textContent = article.title
+            link.href = article.url
+            newsTitle.textContent = article.title
             newsTickerEl.appendChild(link)
             // titles.push(article.title)
 
