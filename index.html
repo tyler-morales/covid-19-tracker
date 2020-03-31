@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <title>COVID-19</title>
+
+</head>
+
+<body>
+    <div class="grid">
+        <h1 class="grid--title">🦠 Covid-19</H1>
+
+        <div class="grid__news">
+            <div class="news">news</div>
+            <div class="ticker-wrap">
+                <div id="news-ticker" class="ticker">
+                    <div class="ticker__item">LATEST UPDATES:</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid__global">
+            <h2 class="grid__global--title">Global Cases</h2>
+            <h3 id="global-cases" class="global-stat-number--cases"></h3>
+        </div>
+
+        <div class="grid__global">
+            <h2 class="grid__global--title">Global Deaths</h2>
+            <h3 id="global-deaths" class="global-stat-number--deaths"></h3>
+        </div>
+
+        <div class="grid__global">
+            <h2 class="grid__global--title">Global Recovered</h2>
+            <h3 id="global-recovered" class="global-stat-number--recovered"></h3>
+        </div>
+
+
+        <div class="grid__stats">
+            <div class="grid__stats--title">Statistics</div>
+            <table id="stats-table" class="rwd-table">
+                <tr>
+                    <th></th>
+                    <th>Country</th>
+                    <th>Cases</th>
+                    <th>Deaths</th>
+                    <th>Recovered</th>
+                    <th>Cases Per 1 Million</th>
+                </tr>
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script src="js/requests.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+:root {
+
+    //COLORS
+    --color-primary: #393939;
+    --color-secondary: #77FF87;
+    --color-tertiary: #E7BF28;
+    --color-bg: #262626;
+    --color-gray:#494949;
+
+    --color-death: #E53838;
+    --color-recovered: #38E5A9;
+
+    //SHADOWS
+    --box-shadow-light:
+        0 3px 4px 1px rgba(50, 64, 99, 0.03),
+        0 3px 4px 0 rgba(0, 0, 0, 0.2);
+    --box-shadow-dark:
+        0 3px 4px 1px rgba(50, 64, 99, 0.068),
+        0 3px 4px 0 rgba(0, 0, 0, 0.2);
+
+}
