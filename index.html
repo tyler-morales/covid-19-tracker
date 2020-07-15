@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body class="dark">
     <div class="grid">
         <h1 class="grid--title">🦠 Covid-19</H1>
 
@@ -41,20 +41,22 @@
 
         <div class="grid__stats">
             <div class="grid__stats--title">Statistics</div>
+            <div class="grid__stats__options">
+                <div id="country-btn" class="grid__stats__options--countries">Countries</div>
+                <div id="state-btn" class="grid__stats__options--states hidden">States</div>
+            </div>
+
             <table id="stats-table" class="rwd-table">
                 <tr>
                     <th></th>
                     <th>Country</th>
-                    <th>Cases</th>
                     <th>Deaths</th>
                     <th>Recovered</th>
-                    <th>Cases Per 1 Million</th>
+                    <th>Cases / Million</th>
                 </tr>
             </table>
 
         </div>
-
-
     </div>
 
 

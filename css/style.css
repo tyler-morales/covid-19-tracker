@@ -2,11 +2,18 @@
 :root {
   --color-primary: #393939;
   --color-secondary: #77FF87;
-  --color-tertiary: #E7BF28;
-  --color-bg: #262626;
-  --color-gray:#494949;
-  --color-death: #E53838;
-  --color-recovered: #38E5A9;
+  --color-secondary-2: rgb(88, 219, 103);
+  --dark-green: #05d817;
+  --gray-0: #f3f3f3;
+  --gray-1: #494949;
+  --gray-2: #393939;
+  --gray-3: #262626;
+  --color-orange: #E7BF28;
+  --color-orange-2: rgb(228, 181, 13);
+  --color-red: #E53838;
+  --color-green: #38E5A9;
+  --black: #000000;
+  --white: #fff;
   --box-shadow-light:
         0 3px 4px 1px rgba(50, 64, 99, 0.03),
         0 3px 4px 0 rgba(0, 0, 0, 0.2);
@@ -14,10 +21,32 @@
         0 3px 4px 1px rgba(50, 64, 99, 0.068),
         0 3px 4px 0 rgba(0, 0, 0, 0.2); }
 
+.light {
+  --bg: var(--gray-0);
+  --color-text: var(--black);
+  --color-headlines: var(--color-secondary-2);
+  --card-bg: var(--white);
+  --death-color: var(--color-red);
+  --cases-color: var(--color-orange-2);
+  --recovered-color: var(--color-green);
+  --table-row: var(--gray-0); }
+
+.dark {
+  --bg: var(--gray-3);
+  --color-text: var(--white);
+  --color-headlines: var(--color-secondary);
+  --card-bg: var(--gray-2);
+  --death-color: var(--color-red);
+  --cases-color: var(--color-orange);
+  --recovered-color: var(--color-green);
+  --table-row: var(--gray-1); }
+
 .rwd-table {
   margin: 1em 0;
   width: 100%;
   min-width: 300px; }
+  .rwd-table tr {
+    color: var(--color-text); }
   .rwd-table th {
     display: none; }
   .rwd-table td {
@@ -54,7 +83,7 @@
   border-radius: 10px;
   overflow: hidden; }
   .rwd-table tr:nth-child(even) {
-    background: var(--color-gray); }
+    background: var(--table-row); }
   .rwd-table th,
   .rwd-table td {
     margin: .5em 1em;
@@ -65,7 +94,12 @@
         padding: 1em !important; } }
   .rwd-table th,
   .rwd-table td:before {
-    color: var(--color-tertiary); }
+    color: var(--color-orange); }
+
+.flag {
+  width: 77px;
+  height: auto;
+  margin: 8px 20px 0 0; }
 
 @-webkit-keyframes ticker {
   0% {
@@ -106,7 +140,7 @@
     .ticker-wrap .ticker__item {
       display: inline-block;
       padding: 0 2rem;
-      color: var(--color-tertiary); }
+      color: var(--color-orange); }
 
 * {
   margin: 0;
@@ -115,7 +149,8 @@
 
 body {
   font-family: 'IBM Plex Mono', monospace;
-  background-color: var(--color-bg); }
+  background-color: var(--bg);
+  transition: background 500ms ease-in-out, color 500ms ease-in-out; }
 
 .grid {
   display: grid;
@@ -130,9 +165,10 @@ body {
       grid-template-columns: 1fr;
       padding: 20px;
       justify-items: center;
-      gap: 20px; } }
+      gap: 20px;
+      height: 100vh; } }
   .grid--title {
-    background-color: var(--color-primary);
+    background-color: var(--card-bg);
     border-radius: 10px;
     padding: 20px 30px;
     box-shadow: var(--box-shadow-dark);
@@ -142,9 +178,9 @@ body {
     font-size: 25px;
     text-transform: uppercase;
     letter-spacing: .065em;
-    color: var(--color-secondary); }
+    color: var(--color-headlines); }
   .grid__news {
-    background-color: var(--color-primary);
+    background-color: var(--card-bg);
     border-radius: 10px;
     padding: 20px 30px;
     box-shadow: var(--box-shadow-dark);
@@ -159,8 +195,22 @@ body {
         grid-row: 2;
         grid-column: 1;
         width: 100%; } }
+    .grid__news .news {
+      background-color: var(--death-color);
+      padding: 28px 30px;
+      color: var(--white);
+      border-radius: 10px 0 0 10px;
+      width: max-content;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10; }
+      @media (max-width: 800px) {
+        .grid__news .news {
+          top: -15px;
+          padding: 26px 15px; } }
   .grid__global {
-    background-color: var(--color-primary);
+    background-color: var(--card-bg);
     border-radius: 10px;
     padding: 20px 30px;
     box-shadow: var(--box-shadow-dark);
@@ -169,7 +219,7 @@ body {
     text-align: center;
     text-transform: uppercase; }
     .grid__global--title {
-      color: var(--color-secondary);
+      color: var(--color-headlines);
       font-weight: 400;
       letter-spacing: .152em;
       font-size: 23px; }
@@ -178,43 +228,13 @@ body {
       font-weight: 400;
       margin-top: 20px; }
       .grid__global .global-stat-number--cases {
-        color: var(--color-tertiary); }
+        color: var(--cases-color); }
       .grid__global .global-stat-number--deaths {
-        color: var(--color-death); }
+        color: var(--death-color); }
       .grid__global .global-stat-number--recovered {
-        color: var(--color-recovered); }
-    .grid__global--percent-change {
-      color: white;
-      margin-top: 20px;
-      display: block; }
-  .grid__dates {
-    grid-column: 1;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--color-primary);
-    border-radius: 10px;
-    padding: 20px 30px;
-    box-shadow: var(--box-shadow-dark);
-    width: 100%;
-    text-align: center; }
-    .grid__dates--btn {
-      color: white;
-      width: max-content;
-      background-color: var(--color-primary);
-      border-radius: 10px;
-      padding: 20px 30px;
-      box-shadow: var(--box-shadow-dark);
-      width: 100%;
-      padding: 15px 20px;
-      transition: all .3s; }
-      .grid__dates--btn:hover {
-        cursor: pointer;
-        box-shadow: var(--box-shadow-light);
-        transform: translateY(-1px); }
-      .grid__dates--btn:active {
-        border: 1px solid var(--color-secondary); }
+        color: var(--recovered-color); }
   .grid__stats {
-    background-color: var(--color-primary);
+    background-color: var(--card-bg);
     border-radius: 10px;
     padding: 20px 30px;
     box-shadow: var(--box-shadow-dark);
@@ -228,21 +248,17 @@ body {
         grid-column: 1;
         min-height: 300px; } }
     .grid__stats--title {
-      color: var(--color-secondary);
+      color: var(--color-headlines);
       font-size: 23px;
       text-transform: uppercase; }
-
-.news {
-  background-color: var(--color-death);
-  padding: 28px 30px;
-  color: white;
-  border-radius: 10px 0 0 10px;
-  width: max-content;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10; }
-  @media (max-width: 800px) {
-    .news {
-      top: -15px;
-      padding: 26px 15px; } }
+    .grid__stats__options {
+      display: flex;
+      color: var(--color-text);
+      justify-content: space-between;
+      width: 180px;
+      margin-top: 20px;
+      opacity: 1; }
+      .grid__stats__options .hidden {
+        opacity: .5; }
+        .grid__stats__options .hidden:hover {
+          cursor: pointer; }

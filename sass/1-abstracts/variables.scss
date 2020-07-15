@@ -3,12 +3,21 @@
     //COLORS
     --color-primary: #393939;
     --color-secondary: #77FF87;
-    --color-tertiary: #E7BF28;
-    --color-bg: #262626;
-    --color-gray:#494949;
+    --color-secondary-2: rgb(88, 219, 103);
+    --dark-green: #05d817;
 
-    --color-death: #E53838;
-    --color-recovered: #38E5A9;
+    --gray-0: #f3f3f3;
+    --gray-1: #494949;
+    --gray-2: #393939;
+    --gray-3: #262626;
+
+    --color-orange: #E7BF28;
+    --color-orange-2: rgb(228, 181, 13);
+    --color-red: #E53838;
+    --color-green: #38E5A9;
+
+    --black: #000000;
+    --white: #fff;
 
     //SHADOWS
     --box-shadow-light:
@@ -17,5 +26,32 @@
     --box-shadow-dark:
         0 3px 4px 1px rgba(50, 64, 99, 0.068),
         0 3px 4px 0 rgba(0, 0, 0, 0.2);
+}
 
+.light {
+    --bg: var(--gray-0);
+    --color-text: var(--black);
+
+    --color-headlines: var(--color-secondary-2);
+
+    --card-bg: var(--white);
+    --death-color: var(--color-red);
+    --cases-color: var(--color-orange-2);
+    --recovered-color: var(--color-green);
+
+    --table-row: var(--gray-0);
+}
+
+.dark {
+    --bg: var(--gray-3);
+    --color-text: var(--white);
+
+    --color-headlines: var(--color-secondary);
+
+    --card-bg: var(--gray-2);
+    --death-color: var(--color-red);
+    --cases-color: var(--color-orange);
+    --recovered-color: var(--color-green);
+
+    --table-row: var(--gray-1);
 }

@@ -1,11 +1,23 @@
 const pomber_api_url_id = 'https://pomber.github.io/covid19/timeseries.json'
 const covid19Summary_api_url = 'https://api.covid19api.com/summary'
 const globalStats_api_url = 'https://corona.lmao.ninja/all'
+const states_api_url = 'https://corona.lmao.ninja/states'
 
 const news_api_key = 'd69affb88e344a3da1b2a12da50f680c'
 const news_api_url = 'https://newsapi.org/v2/everything?language=en&q=COVID&from=2020-03-16&sortBy=publishedAt&apiKey=d69affb88e344a3da1b2a12da50f680c&pageSize=20&page=1';
 
-//async await newsApi fn
+//async await states fn
+async function getStates() {
+    const response = await fetch(states_api_url)
+    if (response.status === 200) {
+        const data = await response.json()
+        return data
+    } else {
+        throw new Error('🚫 Unable to fetch Country data')
+    }
+}
+
+//async await countries fn
 async function getCountries(sort) {
     const response = await fetch(`https://corona.lmao.ninja/countries?sort=${sort}`)
     if (response.status === 200) {
@@ -15,10 +27,6 @@ async function getCountries(sort) {
         throw new Error('🚫 Unable to fetch Country data')
     }
 }
-
-
-
-
 
 //async await newsApi fn
 async function getNews() {

@@ -9,11 +9,12 @@
 
 body {
     font-family: 'IBM Plex Mono', monospace;
-    background-color: var(--color-bg);
+    background-color: var(--bg);
+    transition: background 500ms ease-in-out, color 500ms ease-in-out;
 }
 
 @mixin block {
-    background-color: var(--color-primary);
+    background-color: var(--card-bg);
     border-radius: 10px;
     padding: 20px 30px;
     box-shadow: var(--box-shadow-dark);
@@ -34,8 +35,8 @@ body {
         padding: 20px;
         justify-items: center;
         gap: 20px;
+        height: 100vh;
     }
-
 
     &--title {
         @include block;
@@ -45,8 +46,7 @@ body {
         font-size: 25px;
         text-transform: uppercase;
         letter-spacing: .065em;
-        color: var(--color-secondary);
-
+        color: var(--color-headlines);
     }
 
     &__news {
@@ -63,6 +63,23 @@ body {
             grid-column: 1;
             width: 100%;
         }
+
+        .news {
+            background-color: var(--death-color);
+            padding: 28px 30px;
+            color: var(--white);
+            border-radius: 10px 0 0 10px;
+            width: max-content;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+
+            @media(max-width:800px) {
+                top: -15px;
+                padding: 26px 15px;
+            }
+        }
     }
 
     &__global {
@@ -74,7 +91,7 @@ body {
         text-transform: uppercase;
 
         &--title {
-            color: var(--color-secondary);
+            color: var(--color-headlines);
             font-weight: 400;
             letter-spacing: .152em;
             font-size: 23px;
@@ -87,51 +104,17 @@ body {
 
             &--cases {
                 @extend .global-stat-number;
-                color: var(--color-tertiary);
+                color: var(--cases-color);
             }
 
             &--deaths {
                 @extend .global-stat-number;
-                color: var(--color-death);
+                color: var(--death-color);
             }
 
             &--recovered {
                 @extend .global-stat-number;
-                color: var(--color-recovered);
-            }
-        }
-
-        &--percent-change {
-            color: white;
-            margin-top: 20px;
-            display: block;
-        }
-    }
-
-    &__dates {
-        grid-column: 1;
-        display: flex;
-        justify-content: space-between;
-
-        @include block;
-        text-align: center;
-
-        &--btn {
-            color: white;
-            width: max-content;
-            @include block;
-            padding: 15px 20px;
-
-            transition: all .3s;
-
-            &:hover {
-                cursor: pointer;
-                box-shadow: var(--box-shadow-light);
-                transform: translateY(-1px);
-            }
-
-            &:active {
-                border: 1px solid var(--color-secondary);
+                color: var(--recovered-color);
             }
         }
     }
@@ -150,26 +133,26 @@ body {
         }
 
         &--title {
-            color: var(--color-secondary);
+            color: var(--color-headlines);
             font-size: 23px;
             text-transform: uppercase;
         }
-    }
-}
 
-.news {
-    background-color: var(--color-death);
-    padding: 28px 30px;
-    color: white;
-    border-radius: 10px 0 0 10px;
-    width: max-content;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
+        &__options {
+            display: flex;
+            color: var(--color-text);
+            justify-content: space-between;
+            width: 180px;
+            margin-top: 20px;
+            opacity: 1;
 
-    @media(max-width:800px) {
-        top: -15px;
-        padding: 26px 15px;
+            .hidden {
+                opacity: .5;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }
