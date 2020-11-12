@@ -5,10 +5,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 body {
-    font-family: 'IBM Plex Mono', monospace;
     background-color: var(--bg);
     transition: background 500ms ease-in-out, color 500ms ease-in-out;
 }

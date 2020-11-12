@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     <title>COVID-19</title>
-
 </head>
 
 <body class="dark">
@@ -41,25 +40,64 @@
 
         <div class="grid__stats">
             <div class="grid__stats--title">Statistics</div>
-            <div class="grid__stats__options">
+
+            <!-- tabs -->
+            <div class="tab">
+                <button class="tablinks active-color" onclick="openCity(event, 'States')">States</button>
+                <button class="tablinks" onclick="openCity(event, 'Countries')">Countries</button>
+              </div>
+              
+              <div id="States" class="tabcontent">
+                <table id="states-table" class="rwd-table">
+                    <tr>
+                        <th>State</th>
+                        <th>Cases</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
+                        <th></th>
+                    </tr>
+                </table>
+              </div>
+              
+              <div id="Countries" class="tabcontent">
+                <table id="country-table" class="rwd-table">
+                    <tr>
+                        <th></th>
+                        <th>Country</th>
+                        <th>Cases</th>
+                        <th>Deaths</th>
+                        <th>Recovered</th>
+                        <th>Cases / Million</th>
+                    </tr>
+                </table>
+              </div>
+
+
+            <!-- <div class="grid__stats__options">
                 <div id="country-btn" class="grid__stats__options--countries">Countries</div>
                 <div id="state-btn" class="grid__stats__options--states hidden">States</div>
-            </div>
+            </div> -->
 
-            <table id="stats-table" class="rwd-table">
-                <tr>
-                    <th></th>
-                    <th>Country</th>
-                    <th>Deaths</th>
-                    <th>Recovered</th>
-                    <th>Cases / Million</th>
-                </tr>
-            </table>
+            
 
         </div>
     </div>
 
-
+    <script>
+        function openCity(e, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " w3-red";
+        }
+    </script>        
 
     <script src="js/requests.js"></script>
     <script src="js/functions.js"></script>
