@@ -1,13 +1,13 @@
-const pomber_api_url_id = 'https://pomber.github.io/covid19/timeseries.json'
 const globalStats_api_url = 'https://disease.sh/v3/covid-19/all?yesterday=true'
 const states_api_url = 'https://disease.sh/v3/covid-19/states'
+const country_api_url = 'https://disease.sh/v3/covid-19/countries';
 
 const news_api_key = 'd69affb88e344a3da1b2a12da50f680c'
 const news_api_url = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d69affb88e344a3da1b2a12da50f680c`;
 
 //async await states fn
-async function getStates() {
-    const response = await fetch(states_api_url)
+async function getStates(sort) {
+    const response = await fetch(`${states_api_url}?sort=${sort}`)
     if (response.status === 200) {
         const data = await response.json()
         console.log('🎊 Fetched corona stats for states')
@@ -18,7 +18,7 @@ async function getStates() {
 }
 //async await countries fn
 async function getCountries(sort) {
-    const response = await fetch(`https://disease.sh/v3/covid-19/countries`)
+    const response = await fetch(`${country_api_url}?sort=${sort}`)
     if (response.status === 200) {
         const data = await response.json()
         return data
