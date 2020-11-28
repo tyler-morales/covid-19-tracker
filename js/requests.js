@@ -1,9 +1,10 @@
+
 const globalStats_api_url = 'https://disease.sh/v3/covid-19/all?yesterday=true'
 const states_api_url = 'https://disease.sh/v3/covid-19/states'
 const country_api_url = 'https://disease.sh/v3/covid-19/countries';
 
 const news_api_key = 'd69affb88e344a3da1b2a12da50f680c'
-const news_api_url = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d69affb88e344a3da1b2a12da50f680c`;
+const news_api_url = 'https://newsapi.org/v2/everything?q=covid&apiKey=d69affb88e344a3da1b2a12da50f680c';
 
 //async await states fn
 async function getStates(sort) {

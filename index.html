@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
     <title>COVID-19</title>
 </head>
 
 <body class="dark">
     <div class="grid">
-        <h1 class="grid--title">🦠 Covid-19</H1>
+        <h1 class="grid--title">🦠 Covid-19</h1>
 
         <div class="grid__news">
             <div class="news">news</div>
@@ -37,17 +37,20 @@
             <h3 id="global-recovered" class="global-stat-number--recovered"></h3>
         </div>
 
-
         <div class="grid__stats">
             <div class="grid__stats--title">Statistics</div>
 
             <!-- tabs -->
-            <div class="tab">
-                <button class="tablinks active-color" onclick="openCity(event, 'States')">States</button>
-                <button class="tablinks" onclick="openCity(event, 'Countries')">Countries</button>
-              </div>
-              
-              <div id="States" class="tabcontent">
+            <div class="tabs">
+                <button class="tabs--tab" data-columns="States" id="default">
+                    States
+                </button>
+                <button class="tabs--tab" data-columns="Countries">
+                    Countries
+                </button>
+            </div>
+
+            <div id="States" class="tabContent">
                 <table id="states-table" class="rwd-table">
                     <tr>
                         <th>State</th>
@@ -57,9 +60,9 @@
                         <th></th>
                     </tr>
                 </table>
-              </div>
-              
-              <div id="Countries" class="tabcontent">
+            </div>
+
+            <div id="Countries" class="tabContent">
                 <table id="country-table" class="rwd-table">
                     <tr>
                         <th></th>
@@ -70,37 +73,15 @@
                         <th>Cases / Million</th>
                     </tr>
                 </table>
-              </div>
-
-
-            <!-- <div class="grid__stats__options">
-                <div id="country-btn" class="grid__stats__options--countries">Countries</div>
-                <div id="state-btn" class="grid__stats__options--states hidden">States</div>
-            </div> -->
-
-            
-
+            </div>
         </div>
     </div>
 
-    <script>
-        function openCity(e, cityName) {
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " w3-red";
-        }
-    </script>        
+    <script></script>
 
     <script src="js/requests.js"></script>
     <script src="js/functions.js"></script>
+    <script src="js/tabs.js"></script>
     <script src="js/app.js"></script>
 </body>
 
