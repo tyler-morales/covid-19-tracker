@@ -10,22 +10,16 @@
     border: none;
     outline: none;
     cursor: pointer;
-    // padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-  }
-}
 
-/* Change background color of buttons on hover */
-.tabs button:hover {
-  color: var(--color-secondary);
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
 }
 
 /* Create an active/current tablink class */
 .tabs button.active {
-  color: var(--color-secondary);
-}
-
-.active-color {
   color: var(--color-secondary);
 }
