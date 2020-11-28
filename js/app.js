@@ -1,51 +1,51 @@
-const tabelElCountry = document.getElementById('states-table')
+const tabelElState = document.getElementById('states-table')
 
 getStates('cases')
     .then(data => {
         data.forEach(state => {
             //create tabel row
-            const tabelRow = document.createElement('tr')
+            const tabelRow = tabelElState.insertRow(0);
             tabelRow.classList.add('state-rows')
 
             //create location cell
-            const dataCellLocation = document.createElement('td')
+            const dataCellLocation = tabelRow.insertCell(0);
             dataCellLocation.textContent = state.state
             dataCellLocation.dataset.axisLabel = 'State'
             tabelRow.appendChild(dataCellLocation)
-            tabelElCountry.appendChild(tabelRow)
+            tabelElState.appendChild(tabelRow)
 
             //create cases cell
-            const dataCellCases = document.createElement('td')
+            const dataCellCases = tabelRow.insertCell(1);
             dataCellCases.textContent = formatNumber(state.cases)
             dataCellCases.dataset.axisLabel = 'Cases'
             tabelRow.appendChild(dataCellCases)
-            tabelElCountry.appendChild(tabelRow)
+            tabelElState.appendChild(tabelRow)
 
             //create deaths cell
-            const dataCellDeaths = document.createElement('td')
+            const dataCellDeaths = tabelRow.insertCell(2);
             dataCellDeaths.textContent = formatNumber(state.deaths)
             dataCellDeaths.dataset.axisLabel = 'Deaths'
             tabelRow.appendChild(dataCellDeaths)
-            tabelElCountry.appendChild(tabelRow)
+            tabelElState.appendChild(tabelRow)
 
             //create Active cell
-            const dataCellActive = document.createElement('td')
+            const dataCellActive = tabelRow.insertCell(3);
             dataCellActive.textContent = formatNumber(state.active)
             dataCellActive.dataset.axisLabel = 'Active'
             tabelRow.appendChild(dataCellActive)
-            tabelElCountry.appendChild(tabelRow)
+            tabelElState.appendChild(tabelRow)
         });
     })
 
 
 
-const tabelElState = document.getElementById('country-table')
+const tabelElCountry = document.getElementById('country-table')
 
 getCountries('cases')
     .then(data => {
         data.forEach(name => {
             //create tabel row
-            const tabelRow = document.createElement('tr')
+            const tabelRow = tabelElCountry.insertRow(0);
             tabelRow.classList.add('country-rows')
 
             //create location cell
@@ -54,42 +54,42 @@ getCountries('cases')
             dataflag.classList.add('flag')
             dataflag.dataset.axisLabel = 'Flag'
             tabelRow.appendChild(dataflag)
-            tabelElState.appendChild(tabelRow)
+            tabelElCountry.appendChild(tabelRow)
 
             //create location cell
-            const dataCellLocation = document.createElement('td')
+            const dataCellLocation = tabelRow.insertCell(0);
             dataCellLocation.textContent = name.country
             dataCellLocation.dataset.axisLabel = 'Location'
             tabelRow.appendChild(dataCellLocation)
-            tabelElState.appendChild(tabelRow)
+            tabelElCountry.appendChild(tabelRow)
 
             //create cases cell
-            const dataCellCase = document.createElement('td')
+            const dataCellCase = tabelRow.insertCell(1);
             dataCellCase.textContent = formatNumber(name.cases)
             dataCellCase.dataset.axisLabel = 'Cases'
             tabelRow.appendChild(dataCellCase)
-            tabelElState.appendChild(tabelRow)
+            tabelElCountry.appendChild(tabelRow)
 
             //create death cell
-            const dataCellDeath = document.createElement('td')
+            const dataCellDeath = tabelRow.insertCell(2);
             dataCellDeath.textContent = formatNumber(name.deaths)
             dataCellDeath.dataset.axisLabel = 'Deaths'
             tabelRow.appendChild(dataCellDeath)
-            tabelElState.appendChild(tabelRow)
+            tabelElCountry.appendChild(tabelRow)
 
             //create recovered cell
-            const dataCellRecovered = document.createElement('td')
+            const dataCellRecovered = tabelRow.insertCell(3);
             dataCellRecovered.textContent = formatNumber(name.recovered)
             dataCellRecovered.dataset.axisLabel = 'Recovered'
             tabelRow.appendChild(dataCellRecovered)
-            tabelElState.appendChild(tabelRow)
+            tabelElCountry.appendChild(tabelRow)
 
             //create casesPerMillion cell
-            const dataCellcasesPerMillion = document.createElement('td')
+            const dataCellcasesPerMillion = tabelRow.insertCell(4);
             dataCellcasesPerMillion.textContent = formatNumber(name.casesPerOneMillion)
             dataCellcasesPerMillion.dataset.axisLabel = 'Cases Per Million'
             tabelRow.appendChild(dataCellcasesPerMillion)
-            tabelElState.appendChild(tabelRow)
+            tabelElCountry.appendChild(tabelRow)
         })
     })
 
