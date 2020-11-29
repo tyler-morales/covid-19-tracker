@@ -45,42 +45,49 @@
                 <button class="tabs--tab" data-columns="States" id="default">
                     States
                 </button>
-                <button class="tabs--tab" data-columns="Countries">
-                    Countries
-                </button>
+                <button class="tabs--tab" data-columns="Countries">Countries</button>
             </div>
 
-            <!-- table -->
+            <!-- states table -->
             <div id="States" class="tabContent">
-                <table id="states-table" class="rwd-table">
-                    <tr>
-                        <th>State</th>
-                        <th>Cases</th>
-                        <th>Deaths</th>
-                        <th>Recovered</th>
-                        <th></th>
-                    </tr>
+                <table id="states-table" class="sortable rwd-table">
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th class="sorttable_numeric">Cases</th>
+                            <th class="sorttable_numeric">Deaths</th>
+                            <th class="sorttable_numeric">Recovered</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="state-table-body"></tbody>
                 </table>
             </div>
 
+            <!-- countries table -->
             <div id="Countries" class="tabContent">
-                <table id="country-table" class="rwd-table">
-                    <tr>
-                        <th></th>
-                        <th>Country</th>
-                        <th>Cases</th>
-                        <th>Deaths</th>
-                        <th>Recovered</th>
-                        <th>Cases / Million</th>
-                    </tr>
+                <table id="country-table" class="sortable rwd-table">
+                    <thead>
+                        <tr>
+                            <!-- <th></th> -->
+                            <th class="sorttable_alpha">Country</th>
+                            <th class="sorttable_numeric">Cases</th>
+                            <th class="sorttable_numeric">Deaths</th>
+                            <th class="sorttable_numeric">Recovered</th>
+                            <th class="sorttable_numeric">Cases / Million</th>
+                        </tr>
+                    </thead>
+                    <tbody id="country-table-body"></tbody>
                 </table>
             </div>
         </div>
     </div>
 
+    <script src="js/sorttable.js"></script>
     <script src="js/requests.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/tabs.js"></script>
+    <script src="js/table.js"></script>
     <script src="js/app.js"></script>
 </body>
 
