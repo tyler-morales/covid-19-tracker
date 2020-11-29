@@ -1,4 +1,5 @@
-const tabelElState = document.getElementById('states-table')
+// const tabelElState = document.getElementById('states-table')
+const tabelElState = document.getElementById('state-table-body')
 
 getStates('cases')
     .then(data => {
@@ -39,7 +40,7 @@ getStates('cases')
 
 
 
-const tabelElCountry = document.getElementById('country-table')
+const tabelElCountry = document.getElementById('country-table-body')
 
 getCountries('cases')
     .then(data => {
@@ -54,14 +55,16 @@ getCountries('cases')
             dataflag.classList.add('flag')
             dataflag.dataset.axisLabel = 'Flag'
             tabelRow.appendChild(dataflag)
-            tabelElCountry.appendChild(tabelRow)
+            // tabelElCountry.appendChild(tabelRow)
 
-            //create location cell
-            const dataCellLocation = tabelRow.insertCell(0);
-            dataCellLocation.textContent = name.country
-            dataCellLocation.dataset.axisLabel = 'Location'
-            tabelRow.appendChild(dataCellLocation)
+            //create country name cell
+            const dataCellCountry = tabelRow.insertCell(0);
+            dataCellCountry.textContent = name.country
+            dataCellCountry.appendChild(dataflag)
+            dataCellCountry.dataset.axisLabel = 'Country'
+            tabelRow.appendChild(dataCellCountry)
             tabelElCountry.appendChild(tabelRow)
+            dataCellCountry.classList.add('countryCell')
 
             //create cases cell
             const dataCellCase = tabelRow.insertCell(1);

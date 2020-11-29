@@ -2,95 +2,102 @@
 $breakpoint-alpha: 480px; // adjust to your needs
 
 .rwd-table {
-    margin: 1em 0;
-    width: 100%;
-    min-width: 300px; // adjust to your needs
+  margin: 1em 0;
+  width: 100%;
+  min-width: 300px; // adjust to your needs
 
-    tr {
-        color: var(--color-text);
+  tr {
+    color: var(--color-text);
+  }
+
+  th {
+    display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!
+  }
+
+  td {
+    display: block;
+
+    &:first-child {
+      padding-top: 0.5em;
     }
 
-    th {
-        display: none; // for accessibility, use a visually hidden method here instead! Thanks, reddit!   
+    &:last-child {
+      padding-bottom: 0.5em;
     }
 
-    td {
-        display: block;
+    &:before {
+      content: attr(axisLabel) ': '; // who knew you could do this? The internet, that's who.
+      font-weight: bold;
 
-        &:first-child {
-            padding-top: .5em;
-        }
+      // optional stuff to make it look nicer
+      width: 6.5em; // magic number :( adjust according to your own content
+      display: inline-block;
+      // end options
 
-        &:last-child {
-            padding-bottom: .5em;
-        }
-
-        &:before {
-            content: attr(axisLabel)": "; // who knew you could do this? The internet, that's who.
-            font-weight: bold;
-
-            // optional stuff to make it look nicer
-            width: 6.5em; // magic number :( adjust according to your own content
-            display: inline-block;
-            // end options
-
-            @media (min-width: $breakpoint-alpha) {
-                display: none;
-            }
-        }
+      @media (min-width: $breakpoint-alpha) {
+        display: none;
+      }
     }
+  }
 
-    th,
-    td {
-        text-align: left;
+  th,
+  td {
+    text-align: left;
 
-        @media (min-width: $breakpoint-alpha) {
-            display: table-cell;
-            padding: .25em .5em;
+    @media (min-width: $breakpoint-alpha) {
+      display: table-cell;
+      padding: 0.25em 0.5em;
 
-            &:first-child {
-                padding-left: 0;
-            }
+      &:first-child {
+        padding-left: 0;
+      }
 
-            &:last-child {
-                padding-right: 0;
-            }
-        }
+      &:last-child {
+        padding-right: 0;
+      }
     }
+  }
 }
-
 
 // presentational styling
 
 @import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
 
 .rwd-table {
-    color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
 
-    tr:nth-child(even) {
-        background: var(--table-row);
+  tr:nth-child(even) {
+    background: var(--table-row);
+  }
+
+  th,
+  td {
+    margin: 0.5em 1em;
+    font-weight: 400;
+
+    @media (min-width: $breakpoint-alpha) {
+      padding: 1em !important;
     }
+  }
 
-    th,
-    td {
-        margin: .5em 1em;
-        font-weight: 400;
-
-        @media (min-width: $breakpoint-alpha) {
-            padding: 1em !important;
-        }
-    }
-
-    th,
-    td:before {
-        color: var(--color-orange);
-    }
+  th,
+  td:before {
+    color: var(--color-orange);
+  }
 }
 
 .flag {
-    width: 77px;
-    height: auto;
-    margin: 8px 20px 0 0;
+  width: 77px;
+  height: auto;
+}
+
+.countryCell {
+  display: flex !important;
+  gap: 20px;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin: 0 !important;
 }
